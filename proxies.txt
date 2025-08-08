@@ -1,0 +1,7 @@
+# Format: protocol://user:pass@ip:port
+# Contoh untuk Indonesia:
+# http://user:pass@id-proxy1.example.com:8080
+# socks5://user:pass@id-proxy2.example.com:1080
+
+# Silahkan tambahkan proxy Anda di bawah ini
+# Minimal 5 proxy untuk hasil optimal

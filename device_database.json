@@ -1,0 +1,118 @@
+{
+  "samsung": {
+    "flagship": [
+      {
+        "model": "SM-S918B",
+        "name": "Galaxy S23 Ultra",
+        "res": "1440x3088",
+        "dpi": 500,
+        "cpu": "arm64-v8a",
+        "countries": [
+          "KR",
+          "VN",
+          "ID",
+          "BR",
+          "US"
+        ]
+      },
+      {
+        "model": "SM-S901B",
+        "name": "Galaxy S22",
+        "res": "1080x2340",
+        "dpi": 425,
+        "cpu": "arm64-v8a",
+        "countries": [
+          "KR",
+          "VN",
+          "ID",
+          "BR",
+          "US"
+        ]
+      }
+    ],
+    "midrange": [
+      {
+        "model": "SM-A546E",
+        "name": "Galaxy A54 5G",
+        "res": "1080x2400",
+        "dpi": 400,
+        "cpu": "arm64-v8a",
+        "countries": [
+          "ID",
+          "VN",
+          "TH",
+          "MX",
+          "BR"
+        ]
+      }
+    ]
+  },
+  "xiaomi": {
+    "flagship": [
+      {
+        "model": "2210132G",
+        "name": "Xiaomi 13 Pro",
+        "res": "1440x3200",
+        "dpi": 480,
+        "cpu": "arm64-v8a",
+        "countries": [
+          "CN",
+          "IN",
+          "ES",
+          "RU",
+          "PL"
+        ]
+      }
+    ],
+    "budget": [
+      {
+        "model": "2107119DG",
+        "name": "Redmi Note 10",
+        "res": "720x1600",
+        "dpi": 240,
+        "cpu": "armeabi-v7a",
+        "countries": [
+          "IN",
+          "ID",
+          "PK",
+          "BD",
+          "PH"
+        ]
+      }
+    ]
+  },
+  "realme": {
+    "midrange": [
+      {
+        "model": "RMX3081",
+        "name": "Realme GT Master Edition",
+        "res": "1080x2400",
+        "dpi": 400,
+        "cpu": "arm64-v8a",
+        "countries": [
+          "IN",
+          "TH",
+          "ID",
+          "PH",
+          "MY"
+        ]
+      }
+    ],
+    "budget": [
+      {
+        "model": "RMX2189",
+        "name": "Realme C20",
+        "res": "720x1600",
+        "dpi": 240,
+        "cpu": "armeabi-v7a",
+        "countries": [
+          "ID",
+          "TH",
+          "VN",
+          "PH",
+          "BD"
+        ]
+      }
+    ]
+  }
+}
