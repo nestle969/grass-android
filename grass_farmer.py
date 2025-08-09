@@ -11,10 +11,10 @@ from datetime import datetime, timedelta
 from colorama import init, Fore, Style  
 from websockets_proxy import Proxy, proxy_connect  
 from urllib.parse import urlparse  
-  
+
 # Initialize colorama  
 init(autoreset=True)  
-  
+
 class AndroidGrassFarmer:  
     def __init__(self):  
         self.device_db = self.load_device_db()  
@@ -40,16 +40,16 @@ class AndroidGrassFarmer:
             'wifi': {'latency': (5, 30), 'jitter': (1, 10)}  
         }  
           
-        # Banner  
-        self.banner = f"""{Fore.CYAN}  
-   _____ _____ _____ _____   _____ _____ _____ _____ _____   
-  / ____|  __ \_   _/ ____| |  __ \_   _/ ____|_   _|  __ \\  
- | |  __| |__) || || |      | |__) || || |  __  | | | |__) |  
- | | |_ |  _  / | || |      |  ___/ | || | |_ | | | |  _  /   
- | |__| | | \ \_| || |____  | |    _| || |__| |_| |_| | \ \\  
-  \_____|_|  \_\_____\_____| |_|   |_____\_____|_____|_|  \_\\  
+        # Hacker-style Banner without underline on 'I'  
+        self.banner = f"""{Fore.GREEN}  
+  ██╗      ███╗   ██╗  
+  ██║      ████╗  ██║  
+  ██║      ██╔██╗ ██║  
+  ██║      ██║╚██╗██║  
+  ██║      ██║ ╚████║  
+  ██║      ╚═╝  ╚═══╝  
         {Style.RESET_ALL}"""  
-  
+
     def load_device_db(self):  
         """Muat database perangkat dari file"""  
         try:  
@@ -74,7 +74,7 @@ class AndroidGrassFarmer:
                     ]  
                 }  
             }  
-  
+
     def generate_fingerprint(self):  
         """Buat identitas perangkat Android yang unik"""  
         brand = random.choice(list(self.device_db.keys()))  
@@ -119,13 +119,13 @@ class AndroidGrassFarmer:
             )  
         }  
         self.session_stats['rotations'] += 1  
-  
+
     def get_local_time(self):  
         """Dapatkan waktu lokal berdasarkan negara perangkat"""  
         country = self.current_fingerprint['device']['country']  
         utc_offset = self.timezones.get(country, 0)  
         return datetime.utcnow() + timedelta(hours=utc_offset)  
-  
+
     def get_activity_level(self):  
         """Tentukan tingkat aktivitas berdasarkan waktu lokal"""  
         local_time = self.get_local_time()  
@@ -141,7 +141,7 @@ class AndroidGrassFarmer:
                 ["medium", "low", "idle"],  
                 weights=[0.3, 0.5, 0.2]  
             )[0]  
-  
+
     async def human_like_delay(self, activity_level):  
         """Generate delay seperti manusia"""  
         if activity_level == "high":  
@@ -152,13 +152,13 @@ class AndroidGrassFarmer:
             return random.uniform(5.0, 15.0)  
         else:  # idle  
             return random.uniform(15.0, 60.0)  
-  
+
     def get_network_delay(self):  
         """Hitung delay jaringan yang realistis"""  
         base_latency = self.current_fingerprint['network']['latency_ms'] / 1000  
         jitter = (random.random() * 0.1) - 0.05  # Jitter ±5%  
         return base_latency * (1 + jitter)  
-  
+
     def get_mobile_headers(self):  
         """Generate header khusus perangkat mobile"""  
         return {  
@@ -170,7 +170,7 @@ class AndroidGrassFarmer:
             "X-Device-Id": self.current_fingerprint['device']['unique_ids']['android_id'],  
             "X-Country": self.current_fingerprint['device']['country']  
         }  
-  
+
     async def mobile_session(self, proxy_url, user_id):  
         """Sesi utama untuk koneksi perangkat Android"""  
         self.generate_fingerprint()  
@@ -278,7 +278,7 @@ class AndroidGrassFarmer:
         finally:  
             # Delay sebelum sesi berikutnya  
             await asyncio.sleep(random.uniform(10, 30))  
-  
+
     def log(self, message, level, proxy=None):  
         """Logging yang dioptimalkan"""  
         colors = {  
@@ -295,7 +295,7 @@ class AndroidGrassFarmer:
         proxy_display = urlparse(proxy).hostname if proxy else "No Proxy"  
           
         print(f"{Fore.WHITE}[{timestamp}] {colors.get(level, Fore.WHITE)}[{level}] {Fore.CYAN}[{country}] {Fore.MAGENTA}[{device_model}] {message} {Fore.LIGHTBLACK_EX}({proxy_display})")  
-  
+
 async def main():  
     farmer = AndroidGrassFarmer()  
       
@@ -329,7 +329,7 @@ async def main():
         await asyncio.sleep(0.5)  # Stagger connections  
       
     await asyncio.gather(*tasks)  
-  
+
 if __name__ == "__main__":  
     try:  
         asyncio.run(main())  
